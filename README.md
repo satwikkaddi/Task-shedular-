@@ -54,9 +54,3 @@ README.md
 See `cmd/server/main.go` for a simple demo that enqueues:
 - a one-off task delayed by 30s
 - schedules a recurring task (every minute) using Asynq Scheduler
-
-## Monitoring
-Prometheus metrics are exposed at `:8080/metrics`.
-
-## License
-MIT
