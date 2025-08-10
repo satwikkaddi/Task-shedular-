@@ -58,7 +58,6 @@ func (h *TaskHandler) HandleEmail(ctx context.Context, t *asynq.Task) error {
 
 	// Simulate sending email
 	log.Info().Msgf("sending email to=%s subject=%s", p.To, p.Subject)
-	// imagine email sending here; on failure return error for retry
 	if p.To == "fail@example.com" {
 		return errors.New("simulated email failure")
 	}
@@ -71,7 +70,7 @@ func (h *TaskHandler) HandleReport(ctx context.Context, t *asynq.Task) error {
 		log.Error().Err(err).Msg("invalid payload")
 		return err
 	}
-	// Simulate heavy report generation with sleep
+	
 	log.Info().Msgf("generating report %s at %s", p.Name, p.At.Format(time.RFC3339))
 	select {
 	case <-time.After(2 * time.Second):
